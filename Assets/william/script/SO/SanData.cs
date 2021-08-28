@@ -6,4 +6,10 @@ using UnityEngine;
 public class SanData : GameData
 {
     public float san;
+    public float san_limit;
+
+    public bool IsOver()
+    {
+        return san >= san_limit;
+    }
 }

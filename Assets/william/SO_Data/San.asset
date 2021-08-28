@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d3433d66b71ee4b98f5f819a83f719, type: 3}
   m_Name: San
   m_EditorClassIdentifier: 
-  san: 0
+  san: 25
+  san_limit: 100

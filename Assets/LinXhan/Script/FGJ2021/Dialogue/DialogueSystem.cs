@@ -100,7 +100,7 @@ namespace FGJ2021
 
         public void SplitSentenceAndSetSentenceandName(string sentence)
         {
-            if (sentence.Contains(":") || sentence.Contains("："))//TODO:全形跟半行的問題
+            if (sentence.Contains(":"))//TODO:全形跟半行的問題
             {
 
                 string[] data = sentence.Split(':');
@@ -111,6 +111,7 @@ namespace FGJ2021
                     //TODO:characterName
                     //TODO:Avatar
                     //m_Avatar = m_AvatarLocal.LoadAsset();
+                    m_SetName(m_TmpName);
                     //m_SetName(m_CharacterNameLocal.GetLocalizedString());
 
                 }
@@ -119,7 +120,7 @@ namespace FGJ2021
                     //m_AvatarLocal.SetReference("Avatar", m_TmpName);
                     //m_Avatar = m_AvatarLocal.LoadAsset();
                     m_SetName(m_TmpName);
-                    m_SetAvatar(m_Avatar);
+                    //TODO:m_SetAvatar(m_Avatar);
                 }
 
                 m_SetSentence(m_TmpSentence);

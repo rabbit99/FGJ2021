@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace FGJ2021
 {
@@ -45,8 +46,9 @@ namespace FGJ2021
                     if (m_DialogueSystem.IsStoryEnd()) //TODO:IsStoryEnd的判斷要做在m_DialogueSystem裡面
                     {
 
-                        RemoveUI(m_DialogueUI);
-                        m_DialogueUI.Release();
+                        //RemoveUI(m_DialogueUI);
+                        //m_DialogueUI.Release();
+                        SceneManager.LoadScene("Run");
                     }
                 }
 

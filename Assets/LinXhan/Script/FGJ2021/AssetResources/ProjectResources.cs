@@ -9,10 +9,12 @@ namespace FGJ2021
         private const string SpritePath = "Sprites/";
         private const string InkStoryPath = "InkStory/";
         Converation m_Converation = null;
-
+        SaveData m_SaveData = null;
         public void Initialize()
         {
             m_Converation = new Converation();
+            m_SaveData = new SaveData();
+            m_Converation.Initialize();
         }
 
         public override Sprite LoadCharacterAvatar(string CharacterAvatarName)
@@ -73,14 +75,69 @@ namespace FGJ2021
             m_Converation.m_CurrectChapter = day;
         }
 
+        public void SetCurrectCheck(int num)
+        {
+            m_Converation.m_CurrectCheck = num;
+        }
+
         public override string GetDays()
         {
             return m_Converation.Days[m_Converation.m_CurrectChapter];
         }
 
+        public string GetCurrectStory()
+        {
+            return m_SaveData.m_CurrectStory;
+        }
+
+        public string[][] GetDayNeedCheck()
+        {
+            return m_Converation.DayNeedCheck;
+        }
+
+        public string[][] GetDayBeCheck()
+        {
+            return m_Converation.DayBeCheck;
+        }
+
+        public int GetCurrectCheck()
+        {
+            return m_Converation.m_CurrectCheck;
+        }
+
         public override void NextDays()
         {
             m_Converation.m_CurrectChapter++;
+        }
+
+        public void SavePlayerPref()
+        {
+            m_SaveData.Save();
+        }
+
+        public void LoadPlayerPref()
+        {
+            m_SaveData.Load();
+        }
+
+        public void SaveEvilNum(int num)
+        {
+            m_SaveData.m_EvilNum += num;
+        }
+
+        public void SaveCurrectStory(string s)
+        {
+            m_SaveData.m_CurrectStory = s;
+        }
+
+        public void SaveConveration()
+        {
+            m_SaveData.m_Converation = m_Converation.m_CurrectChapter;
+        }
+
+        public void SaveCurrectCheck()
+        {
+            m_SaveData.m_CurrectCheck = m_Converation.m_CurrectCheck;
         }
     }
 }

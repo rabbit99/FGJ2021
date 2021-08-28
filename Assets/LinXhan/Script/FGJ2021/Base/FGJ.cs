@@ -10,18 +10,17 @@ namespace FGJ2021
         private ProjectResources m_Resources = null;
 
         // Use this for initialization
+
         void Start()
         {
             m_DialogueSystem = new DialogueSystem();
             m_Resources = new ProjectResources();
             GetDialgoueUI();
-            Debug.Log(m_DialogueUI);
             m_Resources.Initialize();
+            m_Resources.LoadPlayerPref();
             GetAndInitinalDialogueUI();
             SetDialgoueSystemDelegateInitialize();
             SetDialogueSystemDelegateUpdate();
-            Debug.Log(m_Resources.GetDays());
-            m_Resources.NextDays();
             Debug.Log(m_Resources.GetDays());
         }
 

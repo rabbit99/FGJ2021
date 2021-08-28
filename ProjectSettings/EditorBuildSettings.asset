@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Run.unity
     guid: 0183fd6db87ab6a45b2b15078000d7a9
+  - enabled: 1
+    path: Assets/Scenes/TestReturn.unity
+    guid: cbab095d3c3e07449871cf29eba0f415
   m_configObjects: {}

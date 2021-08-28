@@ -3,13 +3,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace FGJ2021
 {
     public class DialogueSystem : IGameSystem
     {
         private int m_San;
-        private IResources m_Resources; //TODO:頭像跟名字的導入
+        private ProjectResources m_Resources; //TODO:頭像跟名字的導入
         private TextAsset m_InkAsset = null;
         private Ink.Runtime.Story m_Story; //TODO:以防萬一，我暫時先加一下Ink的Story的namespace，我怕災難出現
 
@@ -20,10 +21,13 @@ namespace FGJ2021
 
         private string m_TmpName = "";
         private string m_TmpSentence = "";
+        private string m_CheckState = "";
         private bool m_StoryEnd = false;
         private Dictionary<int, Action> m_ChoiceActionBtns = null;
         private Dictionary<int, string> m_BtnTexts = null;
         private Sprite m_Avatar = null;
+        private string m_SaveCurrectStory;
+        private int m_EvilNum;
 
         public override void Initialize()
         {
@@ -32,14 +36,27 @@ namespace FGJ2021
             m_TmpSentence = "";
             m_DelegateInitialize();
             m_Story = new Ink.Runtime.Story(m_InkAsset.text);
+            Debug.Log(m_InkAsset.name);
+            if(m_Resources.GetCurrectStory().Equals(""))
+            {
+
+            }
+            else
+            {
+                m_Story.state.LoadJson(m_Resources.GetCurrectStory());
+                m_Resources.SaveCurrectStory("");
+            }
             StoryContinue();
         }
-
-
 
         public override void Update()
         {
             m_DelegateGameSystemUpdate();
+        }
+
+        public void SaveStory()
+        {
+            m_Story.state.ToJson();
         }
 
         public void GetName(Action<string> action)
@@ -62,6 +79,11 @@ namespace FGJ2021
             m_SetChoicePanel = action;
         }
 
+        public void SetResources(ProjectResources projectResources)
+        {
+            m_Resources = projectResources;
+        }
+
         public Dictionary<int, Action> GettChoiceActionBtns()
         {
             return m_ChoiceActionBtns;
@@ -82,6 +104,7 @@ namespace FGJ2021
 
             if (m_Story.canContinue)
             {
+                CheckState();
                 string sentence = m_Story.Continue();
                 sentence.Trim();
                 SplitSentenceAndSetSentenceandName(sentence);
@@ -93,6 +116,7 @@ namespace FGJ2021
 
             if (!m_Story.canContinue && m_Story.currentChoices.Count <= 0)
             {
+                //CheckState();
                 StoryEnd();
             }
 
@@ -123,13 +147,28 @@ namespace FGJ2021
                     //TODO:m_SetAvatar(m_Avatar);
                 }
 
-                m_SetSentence(m_TmpSentence);
+                if(m_TmpSentence.Contains("&"))
+                {
+                    string[] sentenceData = m_TmpSentence.Split('&');
+                    m_TmpSentence = sentenceData[0];
+                    m_CheckState = sentenceData[1];
+                    Debug.Log(m_CheckState);
 
+                }
+
+                m_SetSentence(m_TmpSentence);
             }
             else
             {
                 m_TmpName = "";
                 m_TmpSentence = sentence;
+                if (m_TmpSentence.Contains("&"))
+                {
+                    string[] sentenceData = m_TmpSentence.Split('&');
+                    m_TmpSentence = sentenceData[0];
+                    m_CheckState = sentenceData[1];
+                }
+
                 m_SetName(m_TmpName);
                 m_SetSentence(m_TmpSentence);
 
@@ -159,6 +198,55 @@ namespace FGJ2021
             m_ChoiceActionBtns = tmpActions;
             m_BtnTexts = tmpBtnText;
             m_SetChoicePanel();
+        }
+
+        private void CheckState()
+        {
+            if(m_CheckState.Contains("CHECKMINIGAME"))
+            {
+                m_CheckState = "";
+                string day = m_Resources.GetDays();
+                day = day.Replace("Day", "");
+                Debug.Log(day);
+                int num = int.Parse(day) - 1;
+                int check = m_Resources.GetCurrectCheck();
+                Debug.Log(num);
+                Debug.Log(check);
+                string[][] dayCheck = m_Resources.GetDayNeedCheck();
+                string[][] dayBeCheck = m_Resources.GetDayBeCheck();
+                var checkList = m_Story.variablesState[dayCheck[num][check]] as Ink.Runtime.InkList;
+                if(checkList.Equals(dayBeCheck))
+                {
+
+                }
+                else
+                {
+                    m_SaveCurrectStory = m_Story.state.ToJson();
+                    m_Resources.SaveEvilNum(m_EvilNum);
+                    m_Resources.SaveConveration();
+                    m_Resources.SaveCurrectCheck();
+                    m_Resources.SaveCurrectStory(m_SaveCurrectStory);
+                    m_Resources.SavePlayerPref();
+                    SceneManager.LoadScene("TestReturn");
+                }
+
+
+            }
+            //if(m_CheckState.Contains("ENTERMINIGAME"))
+            //{
+            //    m_CheckState = "";
+            //    m_Resources.SaveEvilNum(m_EvilNum);
+            //    m_Resources.SaveConveration();
+            //    m_Resources.SaveCurrectStory(m_Story.state.ToJson());
+            //    SceneManager.LoadScene("TestReturn");
+            //}
+            if(m_CheckState.Contains("ADDEVILNUM"))
+            {
+                m_CheckState = "";
+                m_EvilNum += 1;
+                m_Resources.SaveEvilNum(m_EvilNum);
+                Debug.Log("ADDEVILNUM");
+            }
         }
 
         private void OnClickChoiceButton(Choice choice)

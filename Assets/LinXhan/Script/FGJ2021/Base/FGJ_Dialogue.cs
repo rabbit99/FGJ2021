@@ -33,6 +33,7 @@ namespace FGJ2021
                 //m_DialogueSystem.GetAvatar(m_DialogueUI.SetAvatar);
                 m_DialogueSystem.GetChoicePanel(m_DialogueUI.SetAllBtnState);
                 m_DialogueSystem.SetStoryTextAsset(m_Resources.LoadTextAsset(m_Resources.GetDays())); //TODO:重點段落，設置存檔的點
+                m_DialogueSystem.SetResources(m_Resources);
             };
             m_DialogueSystem.Initialize();
         }
@@ -45,10 +46,15 @@ namespace FGJ2021
                 {
                     if (m_DialogueSystem.IsStoryEnd()) //TODO:IsStoryEnd的判斷要做在m_DialogueSystem裡面
                     {
-
+                        m_Resources.NextDays();
+                        m_Resources.SetCurrectCheck(0);
+                        GetAndInitinalDialogueUI();
+                        SetDialgoueSystemDelegateInitialize();
+                        SetDialogueSystemDelegateUpdate();
+                        Debug.Log(m_Resources.GetDays());
                         //RemoveUI(m_DialogueUI);
                         //m_DialogueUI.Release();
-                        SceneManager.LoadScene("Run");
+                        //SceneManager.LoadScene("Run");
                     }
                 }
 

@@ -8,6 +8,9 @@ public class UIController : MonoBehaviour
 {
 
     public PlayMakerFSM fsm;
+    public int SanMax = 100; //San最大值
+    public int AngerMax = 100; //怒氣最大值
+    public int LifeMax = 3; //生命最大值
 
 
     public void ChangeSan(int San)

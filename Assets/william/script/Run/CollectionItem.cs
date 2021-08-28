@@ -17,18 +17,15 @@ public class CollectionItem : MonoBehaviour
         this.transform.Translate(new Vector3(GameConfig.BACK_GROUND_MOVE_SPEED, 0, 0));
     }
 
+   public virtual void Hit(string name)
+    {
+        Debug.Log("¼²¨ì"+ name);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        switch (collision.gameObject.name)
-        {
-            case "Player":
-                Debug.Log("¼²¨ì Player");
-                Destroy(this.gameObject);
-                break;
-            case "GirlFriend":
-                Debug.Log("¼²¨ì GirlFriend");
-                Destroy(this.gameObject);
-                break;
-        }
+        Hit(collision.gameObject.name);
+
+        Destroy(this.gameObject);
     }
 }

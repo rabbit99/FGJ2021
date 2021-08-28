@@ -21,6 +21,7 @@ public class BackGroundController : MonoBehaviour
             if(go.transform.position.x < -27)
             {
                 go.transform.SetPositionAndRotation(new Vector3(53.8f,0,0),Quaternion.identity);
+
             }
         }
     }

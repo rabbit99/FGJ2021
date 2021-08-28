@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RunManager : MonoBehaviour
 {
+    public SanData sanData;
     // Start is called before the first frame update
     void Start()
     {

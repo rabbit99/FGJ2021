@@ -8,6 +8,7 @@ namespace FGJ2021
 {
     public class DialogueSystem : IGameSystem
     {
+        private int m_San;
         private IResources m_Resources; //TODO:頭像跟名字的導入
         private TextAsset m_InkAsset = null;
         private Ink.Runtime.Story m_Story; //TODO:以防萬一，我暫時先加一下Ink的Story的namespace，我怕災難出現
@@ -19,7 +20,6 @@ namespace FGJ2021
 
         private string m_TmpName = "";
         private string m_TmpSentence = "";
-        private int m_San;
         private bool m_StoryEnd = false;
         private Dictionary<int, Action> m_ChoiceActionBtns = null;
         private Dictionary<int, string> m_BtnTexts = null;

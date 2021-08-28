@@ -6,13 +6,18 @@ using UnityEngine.Events;
 public class RunManager : MonoBehaviour
 {
     public SanData sanData;
+    public AngerData angerData;
     public float spawnTime = 1f;
     public float san_amount = 1f;
+    public float anger_amount = 1f;
+
     private CooldownTimer cooldownTimer;
 
-    public UnityEvent<float> SanUpateAction;
-    public UnityEvent HpUpateAction;
+    public UnityEvent<int> SanUpateAction;
+    public UnityEvent<int> HpUpateAction;
+    public UnityEvent<int> AngerUpateAction;
     public UnityEvent OverAction;
+    public UnityEvent VictoryAction;
 
     private int hp = 2;
 
@@ -21,9 +26,12 @@ public class RunManager : MonoBehaviour
     {
         cooldownTimer = new CooldownTimer(spawnTime, true);
         cooldownTimer.TimerCompleteEvent += IncreaseSan;
+        cooldownTimer.TimerCompleteEvent += DncreaseAnger;
         cooldownTimer.Start();
 
-        SanUpateAction?.Invoke(sanData.san);
+        SanUpateAction?.Invoke((int)sanData.san);
+
+        angerData.anger = 100;
     }
 
     // Update is called once per frame
@@ -35,7 +43,7 @@ public class RunManager : MonoBehaviour
     public void IncreaseSan()
     {
         sanData.san += san_amount;
-        SanUpateAction?.Invoke(sanData.san);
+        SanUpateAction?.Invoke((int)sanData.san);
         if (sanData.IsOver())
         {
             cooldownTimer.Pause();
@@ -46,7 +54,7 @@ public class RunManager : MonoBehaviour
     public void IncreaseSan(float value)
     {
         sanData.san += value;
-        SanUpateAction?.Invoke(sanData.san);
+        SanUpateAction?.Invoke((int)sanData.san);
         if (sanData.IsOver())
         {
             cooldownTimer.Pause();
@@ -54,9 +62,21 @@ public class RunManager : MonoBehaviour
         }
     }
 
+    public void DncreaseAnger()
+    {
+        angerData.anger -= anger_amount;
+        AngerUpateAction?.Invoke((int)angerData.anger);
+        if (angerData.IsOver())
+        {
+            cooldownTimer.Pause();
+            VictoryAction?.Invoke();
+        }
+    }
+
     public void Hurt(int value)
     {
         hp -= value;
+        HpUpateAction?.Invoke(hp);
         if (hp <= 0)
         {
             cooldownTimer.Pause();

@@ -1,5 +1,20 @@
-LIST gift = flower, book, condom
-LIST shirtcolor = yellow, blue
+/*
+以下為我目前對應編譯器本身的Bug和我自己迴避Bug的方式所用的格式
+當要觸發選擇事件時，你可以用LIST來記錄之前選項
+寫法為~ listname = listitem
+當要觸發追逐遊戲時，在句子(不能為按鈕)最後打上&CHECKMINIGAME
+，而如果下句是要進入下一天的句子，則要多打一行，不然會有Bug
+每個觸發追逐戰的判斷盡量有順序可以讓我可以看，我比較好寫程式，你可以在最前面宣告LIST的地方寫他們出現的順序，我目前打的為範例，如果有重複使用則往後繼續打數字就好(像我額外寫的4和5)
+如果你除了邪教徒路線外還有其他想增加的數值判斷，先暫時打&AddXXXXNum
+我之後比較方便增加判斷的數字
+
+*/
+
+
+
+LIST gift = flower, book, condom //1
+LIST shirtcolor = yellow, blue //2、4
+LIST nightmare = yes, no //3、5
 
 
 //玩家立繪開心
@@ -151,6 +166,7 @@ LIST shirtcolor = yellow, blue
 
 ===Normal===
 //玩家立繪傻笑
+~nightmare = no
 我們享受了一次完美的性愛，然後心滿意足的睡了。
 {shirtcolor == yellow:->Nightmare}
 {gift != condom:->Nightmare}
@@ -158,9 +174,13 @@ LIST shirtcolor = yellow, blue
 
 
 ===Nightmare===
+~nightmare = yes
 我做了一個奇怪的夢，學姊彷彿成為怪物，並且追在我後頭。
-我只能不停地跑著... &ENTERMINIGAME
+我只能不停地跑著... &CHECKMINIGAME
+....
 //進入橫向跑酷，醒在NightmareAwake
 ->END
+
+
 
 

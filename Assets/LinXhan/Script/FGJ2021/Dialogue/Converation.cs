@@ -14,7 +14,7 @@ namespace FGJ2021_LinXhan
 
         public void Initialize()
         {
-            DayNeedCheck = new string[7][];
+            DayNeedCheck = new string[m_FinalDay][];
             DayNeedCheck[0] = new string[]
             {
                 "gift",
@@ -33,20 +33,8 @@ namespace FGJ2021_LinXhan
             {
 
             };
-            DayNeedCheck[4] = new string[]
-            {
 
-            };
-            DayNeedCheck[5] = new string[]
-            {
-    
-            };
-            DayNeedCheck[6] = new string[]
-            {
-
-            };
-
-            DayBeCheck = new string[7][];
+            DayBeCheck = new string[m_FinalDay][];
             DayBeCheck[0] = new string[]
             {
 
@@ -62,18 +50,6 @@ namespace FGJ2021_LinXhan
 
             };
             DayBeCheck[3] = new string[]
-            {
-
-            };
-            DayBeCheck[4] = new string[]
-            {
-
-            };
-            DayBeCheck[5] = new string[]
-            {
-
-            };
-            DayBeCheck[6] = new string[]
             {
 
             };

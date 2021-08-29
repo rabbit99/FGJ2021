@@ -12,7 +12,6 @@ namespace FGJ2021_LinXhan
 
         Converation m_Converation = null;
         SaveData m_SaveData = null;
-        SanData m_SanData = null;
         public void Initialize()
         {
             m_Converation = new Converation();
@@ -112,11 +111,6 @@ namespace FGJ2021_LinXhan
         {
             m_Converation.m_CurrectCDay++;
         }
-
-        //public float GetSan()
-        //{
-        //    return m_SanData.san;
-        //}
 
         public void SavePlayerPref()
         {

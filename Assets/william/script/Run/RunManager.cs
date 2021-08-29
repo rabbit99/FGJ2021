@@ -27,6 +27,7 @@ public class RunManager : MonoBehaviour
 
     public AudioClip coinAudio;
     public AudioClip deadAudio;
+    public AudioClip hitAudio;
     public AudioSource soundPlayer;
 
     // Start is called before the first frame update
@@ -107,6 +108,8 @@ public class RunManager : MonoBehaviour
 
     public void Hurt(int value)
     {
+        soundPlayer.clip = hitAudio;
+        soundPlayer.Play();
         hpData.hp -= value;
         HpUpateAction?.Invoke((int)hpData.hp);
         if (hpData.IsOver())

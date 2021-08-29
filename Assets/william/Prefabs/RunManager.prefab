@@ -257,6 +257,7 @@ MonoBehaviour:
   m_UIController: {fileID: 0}
   coinAudio: {fileID: 8300000, guid: a52229d508ec07b49bd1bf0585c727ae, type: 3}
   deadAudio: {fileID: 8300000, guid: 3c9d82a6b674a8f4a94997060393f2ca, type: 3}
+  hitAudio: {fileID: 8300000, guid: e56deb30102fd4c4782914dc6f7580d0, type: 3}
   soundPlayer: {fileID: 1781003373411602221}
 --- !u!82 &2944505143118087662
 AudioSource:

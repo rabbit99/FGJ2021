@@ -23,6 +23,7 @@ namespace FGJ2021_LinXhan
         private string m_TmpSentence = "";
         private string m_CheckState = "";
         private bool m_StoryEnd = false;
+        private bool m_IsFinalDay = false;
         private Dictionary<int, Action> m_ChoiceActionBtns = null;
         private Dictionary<int, string> m_BtnTexts = null;
         private Sprite m_Avatar = null;
@@ -100,7 +101,6 @@ namespace FGJ2021_LinXhan
 
         public void StoryContinue()
         {
-
             if (m_Story.canContinue)
             {
                 CheckState();
@@ -177,6 +177,13 @@ namespace FGJ2021_LinXhan
 
         private void SetStoryChoice()
         {
+            if (m_Resources.IsFinalDay())
+            {
+                //TODO:做最終結局的生成與判斷
+                Debug.Log("FinalDay");
+            }
+
+
             Dictionary<int, Action> tmpActions = new Dictionary<int, Action>();
             Dictionary<int, string> tmpBtnText = new Dictionary<int, string>();
             //TODO:產生出比較不會出事情的Btn系統

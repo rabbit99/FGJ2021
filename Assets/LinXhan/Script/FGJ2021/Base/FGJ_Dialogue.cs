@@ -47,11 +47,6 @@ namespace FGJ2021_LinXhan
                     if (m_DialogueSystem.IsStoryEnd()) //TODO:IsStoryEnd的判斷要做在m_DialogueSystem裡面
                     {
                         m_Resources.NextDays();
-                        if(m_Resources.IsFinalDay())
-                        {
-                            m_Resources.FinalDay();
-                            Debug.Log("FinalDay");
-                        }
                         m_Resources.SetCurrectCheck(0);
                         GetAndInitinalDialogueUI();
                         SetDialgoueSystemDelegateInitialize();

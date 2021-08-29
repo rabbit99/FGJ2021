@@ -33,6 +33,7 @@ public class RunManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameConfig.BACK_GROUND_MOVE_SPEED = -0.05f;
         cooldownTimer = new CooldownTimer(spawnTime, true);
         cooldownTimer.TimerCompleteEvent += DecreaseSan;
         cooldownTimer.TimerCompleteEvent += DecreaseAnger;

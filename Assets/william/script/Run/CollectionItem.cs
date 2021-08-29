@@ -19,12 +19,12 @@ public class CollectionItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(new Vector3(GameConfig.BACK_GROUND_MOVE_SPEED, 0, 0));
+        this.transform.Translate(new Vector3(RunManager.BACK_GROUND_MOVE_SPEED * Time.deltaTime, 0, 0));
     }
 
-   public virtual void Hit(string name)
+    public virtual void Hit(string name)
     {
-        Debug.Log("¼²¨ì"+ name);
+        Debug.Log("¼²¨ì" + name);
         switch (name)
         {
             case "Player":
@@ -34,7 +34,7 @@ public class CollectionItem : MonoBehaviour
                     go.transform.position = hitEffectRoot.position;
                 }
                 onHit();
-     
+
                 break;
             case "GirlFriend":
                 break;

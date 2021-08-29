@@ -23,17 +23,16 @@ public class RunManager : MonoBehaviour
 
     public UIController m_UIController;
 
-    private int hp = 2;
-
     public AudioClip coinAudio;
     public AudioClip deadAudio;
     public AudioClip hitAudio;
     public AudioSource soundPlayer;
 
+    public static float BACK_GROUND_MOVE_SPEED = -10f;
     // Start is called before the first frame update
     void Start()
     {
-        GameConfig.BACK_GROUND_MOVE_SPEED = -0.05f;
+        RunManager.BACK_GROUND_MOVE_SPEED = -10f;
         cooldownTimer = new CooldownTimer(spawnTime, true);
         cooldownTimer.TimerCompleteEvent += DecreaseSan;
         cooldownTimer.TimerCompleteEvent += DecreaseAnger;
@@ -50,7 +49,7 @@ public class RunManager : MonoBehaviour
            cooldownTimer.Pause();
            soundPlayer.clip = deadAudio;
            soundPlayer.Play();
-           GameConfig.BACK_GROUND_MOVE_SPEED = 0;
+           RunManager.BACK_GROUND_MOVE_SPEED = 0;
        });
         VictoryAction.AddListener(() =>
         {

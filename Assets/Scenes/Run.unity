@@ -2098,11 +2098,11 @@ PrefabInstance:
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: OverAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 708463045}
+      objectReference: {fileID: 7927946733316522867}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: OverAction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 7927946733316522865}
+      objectReference: {fileID: 7927946733316522872}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: HpUpateAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2125,11 +2125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: OverAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: StopSpawn
+      value: Stop
       objectReference: {fileID: 0}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: OverAction.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: SanUpateAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2141,11 +2141,11 @@ PrefabInstance:
       objectReference: {fileID: 2221056498796262812}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: OverAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: CollectionItemController, Assembly-CSharp
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: OverAction.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: UnityEngine.Behaviour, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7554488575439452756, guid: edfbed7ef6715d847a650d07c3e23c47, type: 3}
       propertyPath: OverAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
@@ -2270,8 +2270,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5762dbf93eb7c444daccef4b86b581a7, type: 3}
---- !u!1 &7927946733316522865 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7927946732798762935, guid: 5762dbf93eb7c444daccef4b86b581a7, type: 3}
+--- !u!82 &7927946733316522867 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8763410415689515484, guid: 5762dbf93eb7c444daccef4b86b581a7, type: 3}
+  m_PrefabInstance: {fileID: 7927946733316522864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &7927946733316522872 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7927946732798762937, guid: 5762dbf93eb7c444daccef4b86b581a7, type: 3}
   m_PrefabInstance: {fileID: 7927946733316522864}
   m_PrefabAsset: {fileID: 0}

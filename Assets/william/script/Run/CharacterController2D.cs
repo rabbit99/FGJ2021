@@ -39,9 +39,12 @@ public class CharacterController2D : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log("jump");
-        jump_count_current++;
-        rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jump_height);
-        animator.SetBool("jump", true);
+        if (jump_count_current < jump_count_limit)
+        {
+            Debug.Log("jump");
+            jump_count_current++;
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jump_height);
+            animator.SetBool("jump", true);
+        }
     }
 }

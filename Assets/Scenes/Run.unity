@@ -732,6 +732,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2014787169}
     m_Modifications:
+    - target: {fileID: 8831102458581940545, guid: 72e5313a8286887428d39fe9a1a78745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1578776677}
+    - target: {fileID: 8831102458581940545, guid: 72e5313a8286887428d39fe9a1a78745, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetrunToStart
+      objectReference: {fileID: 0}
     - target: {fileID: 8831102458581940549, guid: 72e5313a8286887428d39fe9a1a78745, type: 3}
       propertyPath: m_Name
       value: GameOverPanel

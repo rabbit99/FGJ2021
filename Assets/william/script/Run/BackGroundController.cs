@@ -5,7 +5,6 @@ using UnityEngine;
 public class BackGroundController : MonoBehaviour
 {
     public GameObject[] backGrounds;
-    public float back_ground_move_speed = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +16,7 @@ public class BackGroundController : MonoBehaviour
     {
         foreach(var go in backGrounds)
         {
-            go.transform.Translate(new Vector3(back_ground_move_speed, 0, 0));
+            go.transform.Translate(new Vector3(GameConfig.BACK_GROUND_MOVE_SPEED, 0, 0));
             if(go.transform.position.x < -19)
             {
                 go.transform.SetPositionAndRotation(new Vector3(38f, go.transform.position.y, 0),Quaternion.identity);

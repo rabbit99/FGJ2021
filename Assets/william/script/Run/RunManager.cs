@@ -48,6 +48,7 @@ public class RunManager : MonoBehaviour
            cooldownTimer.Pause();
            soundPlayer.clip = deadAudio;
            soundPlayer.Play();
+           GameConfig.BACK_GROUND_MOVE_SPEED = 0;
        });
         VictoryAction.AddListener(() =>
         {

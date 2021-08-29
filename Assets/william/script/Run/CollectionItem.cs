@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CollectionItem : MonoBehaviour
 {
+    public delegate void OnHit();
+    public OnHit onHit;
     private string name1;
     // Start is called before the first frame update
     void Start()
     {
         name1 = GameConfig.PLAYER_NAME;
+        Invoke("Recycle", 15);
     }
 
     // Update is called once per frame
@@ -26,6 +29,11 @@ public class CollectionItem : MonoBehaviour
     {
         Hit(collision.gameObject.name);
 
+        Destroy(this.gameObject);
+    }
+
+    private void Recycle()
+    {
         Destroy(this.gameObject);
     }
 }

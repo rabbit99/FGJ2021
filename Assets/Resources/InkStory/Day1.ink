@@ -53,22 +53,29 @@ LIST nightmare = yes, no //3、5
 還好沒等很久，剛好在時間內趕到。
 ->Restaurant
 
-===Delay===
-//客舒如立繪怒
-客舒如:「你遲到了！我最討厭遲到的人」
-我拿出準備好的禮物&CHECKMINIGAME
-{ gift == book:
-        ->Restaurant
--else:
-        ->Revive
-}
-//->Restaurant
-//克蘇魯的呼喚小說以外，都會惹怒她，進入跑酷模式，跑酷結束進入Revive
 ===Mortocycle===
 //玩家立繪怒
 我:「淦！塞車...」
 ->Delay
 
+===Delay===
+//客舒如立繪怒
+客舒如:「你遲到了！我最討厭遲到的人」
+我拿出準備好的禮物
+{ gift == book:
+        ->BookGift
+-else:
+        ->ElseGift
+}
+//->Restaurant
+//克蘇魯的呼喚小說以外，都會惹怒她，進入跑酷模式，跑酷結束進入Revive
+
+===BookGift===
+->Restaurant
+
+===ElseGift===
+我見到了不可名狀的事物，恐懼與瘋狂佔據了我的心裡。&CHECKMINIGAME
+->Revive
 ===Gift===
 //客舒如立繪驚訝
 客舒如:「你怎麼知道這是我最喜歡的小說！」

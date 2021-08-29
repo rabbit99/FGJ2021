@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public class DialogueSystem : IGameSystem
     {
@@ -36,7 +36,6 @@ namespace FGJ2021
             m_TmpSentence = "";
             m_DelegateInitialize();
             m_Story = new Ink.Runtime.Story(m_InkAsset.text);
-            Debug.Log(m_InkAsset.name);
             if(m_Resources.GetCurrectStory().Equals(""))
             {
 
@@ -132,17 +131,12 @@ namespace FGJ2021
                 m_TmpSentence = data[1];
                 if (m_TmpName.Equals("Player"))
                 {
-                    //TODO:characterName
                     //TODO:Avatar
                     //m_Avatar = m_AvatarLocal.LoadAsset();
                     m_SetName(m_TmpName);
-                    //m_SetName(m_CharacterNameLocal.GetLocalizedString());
-
                 }
                 else
                 {
-                    //m_AvatarLocal.SetReference("Avatar", m_TmpName);
-                    //m_Avatar = m_AvatarLocal.LoadAsset();
                     m_SetName(m_TmpName);
                     //TODO:m_SetAvatar(m_Avatar);
                 }
@@ -232,14 +226,6 @@ namespace FGJ2021
 
 
             }
-            //if(m_CheckState.Contains("ENTERMINIGAME"))
-            //{
-            //    m_CheckState = "";
-            //    m_Resources.SaveEvilNum(m_EvilNum);
-            //    m_Resources.SaveConveration();
-            //    m_Resources.SaveCurrectStory(m_Story.state.ToJson());
-            //    SceneManager.LoadScene("TestReturn");
-            //}
             if(m_CheckState.Contains("ADDEVILNUM"))
             {
                 m_CheckState = "";

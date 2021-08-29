@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public partial class FGJ
     {
@@ -32,7 +32,7 @@ namespace FGJ2021
                 m_DialogueSystem.GetSentence(m_DialogueUI.SetSentenceText);
                 //m_DialogueSystem.GetAvatar(m_DialogueUI.SetAvatar);
                 m_DialogueSystem.GetChoicePanel(m_DialogueUI.SetAllBtnState);
-                m_DialogueSystem.SetStoryTextAsset(m_Resources.LoadTextAsset(m_Resources.GetDays())); //TODO:重點段落，設置存檔的點
+                m_DialogueSystem.SetStoryTextAsset(m_Resources.LoadTextAsset(m_Resources.GetDays()));
                 m_DialogueSystem.SetResources(m_Resources);
             };
             m_DialogueSystem.Initialize();
@@ -52,9 +52,6 @@ namespace FGJ2021
                         SetDialgoueSystemDelegateInitialize();
                         SetDialogueSystemDelegateUpdate();
                         Debug.Log(m_Resources.GetDays());
-                        //RemoveUI(m_DialogueUI);
-                        //m_DialogueUI.Release();
-                        //SceneManager.LoadScene("Run");
                     }
                 }
 

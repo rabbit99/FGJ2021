@@ -4,15 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public class DialogueUI : IUserInterface
     {
         [SerializeField] private GameObject m_SentencePanel;
         [SerializeField] private Text m_CharacterName;
         [SerializeField] private Text m_Sentence;
-        [SerializeField] private Image m_Avatar1;
-        [SerializeField] private Image m_Avatar2;
+        [SerializeField] private Image m_Avatar;
         [SerializeField] private Button m_ContinueButton;
 
         [SerializeField] private GameObject m_ChoicePanel;
@@ -101,12 +100,7 @@ namespace FGJ2021
 
         public void SetAvatar1(Sprite avatar)
         {
-            this.m_Avatar1.sprite = avatar;
-        }
-
-        public void SetAvatar2(Sprite avatar2)
-        {
-            m_Avatar2.sprite = avatar2;
+            this.m_Avatar.sprite = avatar;
         }
 
         public void SetContinueStory(Action action)

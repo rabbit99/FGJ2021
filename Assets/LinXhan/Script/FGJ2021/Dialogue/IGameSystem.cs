@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public class IGameSystem
     {

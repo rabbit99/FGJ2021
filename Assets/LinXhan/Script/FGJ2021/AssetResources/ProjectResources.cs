@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public class ProjectResources :IResources
     {
         private const string UIPath = "UI/";
         private const string SpritePath = "Sprites/";
         private const string InkStoryPath = "InkStory/";
+        private const string PrefabData = "PrefabData/";
+
         Converation m_Converation = null;
         SaveData m_SaveData = null;
+        SanData m_SanData = null;
         public void Initialize()
         {
             m_Converation = new Converation();
@@ -72,7 +75,7 @@ namespace FGJ2021
 
         public override void SetDays(int day)
         {
-            m_Converation.m_CurrectChapter = day;
+            m_Converation.m_CurrectCDay = day;
         }
 
         public void SetCurrectCheck(int num)
@@ -82,7 +85,7 @@ namespace FGJ2021
 
         public override string GetDays()
         {
-            return m_Converation.Days[m_Converation.m_CurrectChapter];
+            return m_Converation.Days[m_Converation.m_CurrectCDay];
         }
 
         public string GetCurrectStory()
@@ -107,7 +110,12 @@ namespace FGJ2021
 
         public override void NextDays()
         {
-            m_Converation.m_CurrectChapter++;
+            m_Converation.m_CurrectCDay++;
+        }
+
+        public float GetSan()
+        {
+            return m_SanData.san;
         }
 
         public void SavePlayerPref()
@@ -132,12 +140,31 @@ namespace FGJ2021
 
         public void SaveConveration()
         {
-            m_SaveData.m_Converation = m_Converation.m_CurrectChapter;
+            m_SaveData.m_Converation = m_Converation.m_CurrectCDay;
         }
 
         public void SaveCurrectCheck()
         {
             m_SaveData.m_CurrectCheck = m_Converation.m_CurrectCheck;
         }
+
+        public bool IsFinalDay()
+        {
+            if(m_Converation.m_CurrectCDay == m_Converation.m_FinalDay)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void FinalDay()
+        {
+
+        }
+
+
     }
 }

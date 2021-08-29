@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public partial class FGJ : MonoBehaviour
     {
@@ -21,6 +21,7 @@ namespace FGJ2021
             GetAndInitinalDialogueUI();
             SetDialgoueSystemDelegateInitialize();
             SetDialogueSystemDelegateUpdate();
+            Debug.Log(m_Resources.GetSan());
             Debug.Log(m_Resources.GetDays());
         }
 

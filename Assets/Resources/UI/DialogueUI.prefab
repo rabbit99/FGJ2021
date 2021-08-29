@@ -369,8 +369,7 @@ MonoBehaviour:
   m_SentencePanel: {fileID: 6317007755324349507}
   m_CharacterName: {fileID: 6317007755216522479}
   m_Sentence: {fileID: 6317007755310497166}
-  m_Avatar1: {fileID: 6317007756598499429}
-  m_Avatar2: {fileID: 7836991949841392789}
+  m_Avatar: {fileID: 6317007756598499429}
   m_ContinueButton: {fileID: 6317007755877012299}
   m_ChoicePanel: {fileID: 6317007756437787222}
   m_ButtonA: {fileID: 6317007755251454542}
@@ -688,7 +687,6 @@ RectTransform:
   - {fileID: 6317007755216522476}
   - {fileID: 6317007755310497167}
   - {fileID: 6317007756598499426}
-  - {fileID: 8044741684971889577}
   - {fileID: 6317007755877012296}
   m_Father: {fileID: 6317007755116950165}
   m_RootOrder: 0
@@ -926,7 +924,7 @@ RectTransform:
   m_Children:
   - {fileID: 6317007756280340712}
   m_Father: {fileID: 6317007755324349506}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1531,7 +1529,7 @@ GameObject:
   - component: {fileID: 6317007756598499428}
   - component: {fileID: 6317007756598499429}
   m_Layer: 5
-  m_Name: AvatarImage1
+  m_Name: AvatarImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1553,7 +1551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -142, y: 117}
+  m_AnchoredPosition: {x: -5, y: 117}
   m_SizeDelta: {x: 180.9702, y: 134.9952}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6317007756598499428
@@ -1571,81 +1569,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6317007756598499427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ffa95364f821d54fbbd0195d26dfb5e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!1 &7259421144653463177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8044741684971889577}
-  - component: {fileID: 4284112442718827752}
-  - component: {fileID: 7836991949841392789}
-  m_Layer: 5
-  m_Name: AvatarImage2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8044741684971889577
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7259421144653463177}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6317007755324349506}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135, y: 116}
-  m_SizeDelta: {x: 180.9702, y: 134.9952}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4284112442718827752
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7259421144653463177}
-  m_CullTransparentMesh: 1
---- !u!114 &7836991949841392789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7259421144653463177}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public abstract class IResources
     {

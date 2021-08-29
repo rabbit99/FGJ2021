@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace FGJ2021
+namespace FGJ2021_LinXhan
 {
     public class SaveData
     {
@@ -10,12 +10,15 @@ namespace FGJ2021
         public string m_CurrectStory = "";
         public int m_CurrectCheck = 0;
         public int m_Converation = 0;
+        private SanData m_SanData;
 
         public void Initinal()
         {
-                PlayerPrefs.SetInt("EvilNum", 0);
-                PlayerPrefs.SetInt("Converation", 0);
-                PlayerPrefs.SetString("CurrectStory", "");           
+            m_SanData = new SanData();
+            PlayerPrefs.SetInt("EvilNum", 0);
+            PlayerPrefs.SetInt("Converation", 0);
+            PlayerPrefs.SetString("CurrectStory", "");
+            m_SanData.san = 0; //TODO:歸0測試，失敗正常
         }
 
         public void Save()

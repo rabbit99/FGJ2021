@@ -40,13 +40,14 @@ public class RunManager : MonoBehaviour
 
         SanUpateAction?.Invoke((int)sanData.san);
         AngerUpateAction?.Invoke((int)angerData.anger_max);
+        HpUpateAction?.Invoke((int)hpData.hp_max);
         sanData.Retset();
         angerData.Retset();
         hpData.Retset();
 
         OverAction.AddListener(() =>
        {
-           cooldownTimer.Pause();
+           //cooldownTimer.Pause();
            soundPlayer.clip = deadAudio;
            soundPlayer.Play();
            RunManager.BACK_GROUND_MOVE_SPEED = 0;
@@ -108,14 +109,17 @@ public class RunManager : MonoBehaviour
 
     public void Hurt(int value)
     {
+        Debug.Log("Hurt");
         soundPlayer.clip = hitAudio;
         soundPlayer.Play();
         hpData.hp -= value;
         HpUpateAction?.Invoke((int)hpData.hp);
         if (hpData.IsOver())
         {
+            Debug.Log("Hurt IsOver");
             cooldownTimer.Pause();
             OverAction?.Invoke();
         }
+        Debug.Log("Hurt end");
     }
 }

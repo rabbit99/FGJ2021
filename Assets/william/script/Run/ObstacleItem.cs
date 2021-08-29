@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ObstacleItem : CollectionItem
 {
-    public delegate void OnHit();
-    public OnHit onHit;
-
 
     public override void Hit(string name)
     {

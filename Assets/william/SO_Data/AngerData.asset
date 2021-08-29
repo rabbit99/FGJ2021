@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93be125d230d57c4eb2b2ef6dd8b3d7c, type: 3}
   m_Name: AngerData
   m_EditorClassIdentifier: 
-  anger: 0
+  anger: 100
+  anger_max: 100

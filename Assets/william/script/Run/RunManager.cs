@@ -25,6 +25,10 @@ public class RunManager : MonoBehaviour
 
     private int hp = 2;
 
+    public AudioClip coinAudio;
+    public AudioClip deadAudio;
+    public AudioSource soundPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +46,8 @@ public class RunManager : MonoBehaviour
         OverAction.AddListener(() =>
        {
            cooldownTimer.Pause();
+           soundPlayer.clip = deadAudio;
+           soundPlayer.Play();
        });
         VictoryAction.AddListener(() =>
         {
@@ -68,6 +74,8 @@ public class RunManager : MonoBehaviour
 
     public void IncreaseSan()
     {
+        soundPlayer.clip = coinAudio;
+        soundPlayer.Play();
         if (sanData.san + san_IncreaseAmount <= sanData.san_max)
         {
             sanData.san += san_IncreaseAmount;

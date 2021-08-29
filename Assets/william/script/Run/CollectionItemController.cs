@@ -12,6 +12,7 @@ public class CollectionItemController : MonoBehaviour
     public float spawnTime = 1f;
 
     public UnityEvent TriggerObstacleAction;
+    public UnityEvent CollectionItemAction;
 
     private List<GameObject> collectionItems = new List<GameObject>();
     private List<GameObject> obstacleItems = new List<GameObject>();
@@ -37,13 +38,14 @@ public class CollectionItemController : MonoBehaviour
         if (spwanRootIndex < 20)
         {
             GameObject go = Instantiate(ObstacleItemPrefab, CollectionItemRoot[0]);
-            go.GetComponent<ObstacleItem>().onHit = () => { TriggerObstacleAction?.Invoke(); };
+            go.GetComponent<CollectionItem>().onHit = () => { TriggerObstacleAction?.Invoke(); };
             if (go) obstacleItems.Add(go);
         }
         else
         {
             spwanRootIndex = Random.Range(0, 2);
             GameObject go = Instantiate(CollectionItemPrefab, CollectionItemRoot[spwanRootIndex]);
+            go.GetComponent<CollectionItem>().onHit = () => { CollectionItemAction?.Invoke(); };
             if (go) collectionItems.Add(go);
         }
     }

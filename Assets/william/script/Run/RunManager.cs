@@ -7,6 +7,7 @@ public class RunManager : MonoBehaviour
 {
     public SanData sanData;
     public AngerData angerData;
+    public HpData hpData;
     public float spawnTime = 1f;
     public float san_amount = 1f;
     public float anger_amount = 1f;
@@ -19,19 +20,23 @@ public class RunManager : MonoBehaviour
     public UnityEvent OverAction;
     public UnityEvent VictoryAction;
 
+    public UIController m_UIController;
+
     private int hp = 2;
 
     // Start is called before the first frame update
     void Start()
     {
         cooldownTimer = new CooldownTimer(spawnTime, true);
-        cooldownTimer.TimerCompleteEvent += IncreaseSan;
-        cooldownTimer.TimerCompleteEvent += DncreaseAnger;
+        cooldownTimer.TimerCompleteEvent += DecreaseSan;
+        cooldownTimer.TimerCompleteEvent += DecreaseAnger;
         cooldownTimer.Start();
 
         SanUpateAction?.Invoke((int)sanData.san);
-
-        angerData.anger = 100;
+        AngerUpateAction?.Invoke((int)angerData.anger_max);
+        sanData.Retset();
+        angerData.Retset();
+        hpData.Retset();
     }
 
     // Update is called once per frame
@@ -40,9 +45,20 @@ public class RunManager : MonoBehaviour
         cooldownTimer.Update(Time.deltaTime);
     }
 
+    public void DecreaseSan()
+    {
+        sanData.san -= san_amount;
+        SanUpateAction?.Invoke((int)sanData.san);
+        if (sanData.IsOver())
+        {
+            cooldownTimer.Pause();
+            OverAction?.Invoke();
+        }
+    }
+
     public void IncreaseSan()
     {
-        sanData.san += san_amount;
+        sanData.san += 5;
         SanUpateAction?.Invoke((int)sanData.san);
         if (sanData.IsOver())
         {
@@ -51,18 +67,7 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void IncreaseSan(float value)
-    {
-        sanData.san += value;
-        SanUpateAction?.Invoke((int)sanData.san);
-        if (sanData.IsOver())
-        {
-            cooldownTimer.Pause();
-            OverAction?.Invoke();
-        }
-    }
-
-    public void DncreaseAnger()
+    public void DecreaseAnger()
     {
         angerData.anger -= anger_amount;
         AngerUpateAction?.Invoke((int)angerData.anger);
@@ -75,9 +80,9 @@ public class RunManager : MonoBehaviour
 
     public void Hurt(int value)
     {
-        hp -= value;
-        HpUpateAction?.Invoke(hp);
-        if (hp <= 0)
+        hpData.hp -= value;
+        HpUpateAction?.Invoke((int)hpData.hp);
+        if (hpData.IsOver())
         {
             cooldownTimer.Pause();
             OverAction?.Invoke();

@@ -6,8 +6,14 @@ using UnityEngine;
 public class AngerData : GameData
 {
     public float anger;
+    public float anger_max;
     public bool IsOver()
     {
         return anger <= 0;
+    }
+
+    public void Retset()
+    {
+        anger = anger_max;
     }
 }

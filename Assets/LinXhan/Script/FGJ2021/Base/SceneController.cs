@@ -17,4 +17,9 @@ public class SceneController : MonoBehaviour
         PlayerPrefs.SetString("CurrectStory", "");
         SceneManager.LoadScene("Talk");
     }
+
+    public void RetrunToStart()
+    {
+        SceneManager.LoadScene("Start");
+    }
 }

@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New SanData", menuName = "Item/San Data", order = 1)]
 public class SanData : GameData
 {
-    public float san;
-    public float san_max;
+    public int san;
+    public int san_max;
 
     public bool IsOver()
     {

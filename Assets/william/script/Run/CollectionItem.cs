@@ -6,6 +6,8 @@ public class CollectionItem : MonoBehaviour
 {
     public delegate void OnHit();
     public OnHit onHit;
+    public GameObject hitEffect;
+    public Transform hitEffectRoot;
     private string name1;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,20 @@ public class CollectionItem : MonoBehaviour
    public virtual void Hit(string name)
     {
         Debug.Log("¼²¨ì"+ name);
+        switch (name)
+        {
+            case "Player":
+                if (hitEffect)
+                {
+                    GameObject go = Instantiate(hitEffect);
+                    go.transform.position = hitEffectRoot.position;
+                }
+                onHit();
+     
+                break;
+            case "GirlFriend":
+                break;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -113,10 +113,10 @@ namespace FGJ2021_LinXhan
             m_Converation.m_CurrectCDay++;
         }
 
-        public float GetSan()
-        {
-            return m_SanData.san;
-        }
+        //public float GetSan()
+        //{
+        //    return m_SanData.san;
+        //}
 
         public void SavePlayerPref()
         {

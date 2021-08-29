@@ -221,7 +221,7 @@ namespace FGJ2021_LinXhan
                     m_Resources.SaveCurrectCheck();
                     m_Resources.SaveCurrectStory(m_SaveCurrectStory);
                     m_Resources.SavePlayerPref();
-                    SceneManager.LoadScene("TestReturn");
+                    SceneManager.LoadScene("Run"); //TODO:¶]¨Bµøµ¡¤Á´«
                 }
 
 

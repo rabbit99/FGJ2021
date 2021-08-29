@@ -21,7 +21,7 @@ namespace FGJ2021_LinXhan
             GetAndInitinalDialogueUI();
             SetDialgoueSystemDelegateInitialize();
             SetDialogueSystemDelegateUpdate();
-            Debug.Log(m_Resources.GetSan());
+            //Debug.Log(m_Resources.GetSan());
             Debug.Log(m_Resources.GetDays());
         }
 

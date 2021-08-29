@@ -23,6 +23,14 @@ public class CollectionItem : MonoBehaviour
    public virtual void Hit(string name)
     {
         Debug.Log("¼²¨ì"+ name);
+        switch (name)
+        {
+            case "Player":
+                onHit();
+                break;
+            case "GirlFriend":
+                break;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

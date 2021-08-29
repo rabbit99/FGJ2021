@@ -62,4 +62,17 @@ public class CollectionItemController : MonoBehaviour
         }
 
     }
+
+    public void StopSpawn()
+    {
+        SwitchSpawn(false);
+        foreach(var go in collectionItems)
+        {
+            Destroy(go);
+        }
+        foreach (var go in obstacleItems)
+        {
+            Destroy(go);
+        }
+    }
 }

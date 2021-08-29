@@ -9,8 +9,9 @@ public class RunManager : MonoBehaviour
     public AngerData angerData;
     public HpData hpData;
     public float spawnTime = 1f;
-    public float san_amount = 1f;
-    public float anger_amount = 1f;
+    public int san_DecreaseAmount = 1;
+    public int san_IncreaseAmount = 5;
+    public int anger_amount = 1;
 
     private CooldownTimer cooldownTimer;
 
@@ -37,6 +38,15 @@ public class RunManager : MonoBehaviour
         sanData.Retset();
         angerData.Retset();
         hpData.Retset();
+
+        OverAction.AddListener(() =>
+       {
+           cooldownTimer.Pause();
+       });
+        VictoryAction.AddListener(() =>
+        {
+            cooldownTimer.Pause();
+        });
     }
 
     // Update is called once per frame
@@ -47,7 +57,7 @@ public class RunManager : MonoBehaviour
 
     public void DecreaseSan()
     {
-        sanData.san -= san_amount;
+        sanData.san -= san_DecreaseAmount;
         SanUpateAction?.Invoke((int)sanData.san);
         if (sanData.IsOver())
         {
@@ -58,7 +68,15 @@ public class RunManager : MonoBehaviour
 
     public void IncreaseSan()
     {
-        sanData.san += 5;
+        if (sanData.san + san_IncreaseAmount <= sanData.san_max)
+        {
+            sanData.san += san_IncreaseAmount;
+        }
+        else
+        {
+            sanData.san = sanData.san_max;
+        }
+
         SanUpateAction?.Invoke((int)sanData.san);
         if (sanData.IsOver())
         {

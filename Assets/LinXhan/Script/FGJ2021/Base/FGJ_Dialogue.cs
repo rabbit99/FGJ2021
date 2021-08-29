@@ -44,6 +44,11 @@ namespace FGJ2021_LinXhan
             {
                 if (m_UIs.Contains(m_DialogueUI)) //TODO:之後要改成陣列
                 {
+                    if(m_Resources.IsFinalDay())
+                    {
+                        SceneManager.LoadScene("END");
+                    }
+
                     if (m_DialogueSystem.IsStoryEnd()) //TODO:IsStoryEnd的判斷要做在m_DialogueSystem裡面
                     {
                         m_Resources.NextDays();

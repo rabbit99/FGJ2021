@@ -11,9 +11,11 @@ public class CharacterController2D : MonoBehaviour
     public int jump_count_limit = 2;
     public int jump_count_current = 2;
     private bool isGround = false;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class CharacterController2D : MonoBehaviour
             Debug.Log("jump");
             jump_count_current++;
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jump_height);
+            animator.SetBool("jump", true);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,6 +36,7 @@ public class CharacterController2D : MonoBehaviour
         {
             jump_count_current = 0;
             isGround = true;
+            animator.SetBool("jump", false);
         }
     }
 }

@@ -18,6 +18,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Talk");
     }
 
+    public void EndGame()
+    {
+        UnityEngine.Application.Quit();
+    }
+
     public void RetrunToStart()
     {
         SceneManager.LoadScene("Start");

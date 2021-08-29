@@ -23,10 +23,7 @@ public class CharacterController2D : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && jump_count_current < jump_count_limit)
         {
-            Debug.Log("jump");
-            jump_count_current++;
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jump_height);
-            animator.SetBool("jump", true);
+            Jump();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,5 +35,13 @@ public class CharacterController2D : MonoBehaviour
             isGround = true;
             animator.SetBool("jump", false);
         }
+    }
+
+    public void Jump()
+    {
+        Debug.Log("jump");
+        jump_count_current++;
+        rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jump_height);
+        animator.SetBool("jump", true);
     }
 }
